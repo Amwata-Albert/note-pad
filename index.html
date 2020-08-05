@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .credentials{
+        line-height: 40px;
+        background-color:#615d2f ;
+        width:14.5%;
+        margin-bottom: 1%;
+    }
+    .credentials input{
+            background-color:wood;
+            background:;
+            border-radius: 5px;
+            /* opacity: 0.6; */
+            /* background: transparent; */
+            height: 30px;
+            line-height: 40px;
+
+    }
+    .button1 button,.button2 button{
+        background-color: deepskyblue;
+        width: 10%;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+    .paragragh p{
+        font-size: 50px;
+        color: red;
+        font-weight: 5100;
+        margin-left: 3.5%;
+    }
+    body{
+        background-image:url("wood.jpg") ;
+        margin-left: 80%
+        ;
+    }
+</style>
+<body>
+
+    <div class="button2">
+        <button id="log-in" onclick="login()">log in</button>
+</div>
+    <div class="credentials">
+        <input type="text" id="username" placeholder="username">
+        <input type="email" id="mail" placeholder="Email"><br>
+        <input type="password" id="pass" placeholder="password">
+       
+    </div>
+    <div class="button1">
+        <button style="display: block;" id="new-user">I am a new user</button>
+    </div>
+    <div class="button3">
+        <button style="display: none;" id="register" onclick="register()">register</button>
+    </div>
+  <div class="paragragh"><strong><p style="font-size: large;">or</p></strong>
+ </div> 
+   
+    <script src="jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="js/script.js"></script>
+    
+</body>
+</html>
