@@ -12,18 +12,16 @@ $(document).ready(function () {
         const addedNote = $("textarea#note-content").val();
 
         if (addedNote !== '') {
-            notesArray.push(addedNote);
+            notesArray.push(`<li>${addedNote}</li>`);
         }
 
         // console.log(notesArray);
 
         $("#notes-display").html("");
 
-        const reverseNotes = notesArray;
-
-        reverseNotes.reverse().forEach(function (note) {
-            $("#notes-display").append(function() {
-                return `<li>${note}</li>`;
+        notesArray.forEach(function (note) {
+            $("#notes-display").prepend(function() {
+                return note;
             });
         });
     });
