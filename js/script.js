@@ -2,6 +2,7 @@ $(document).ready(function(){
     $("#new-user").click(function(){
       $("#register").toggle();
       $("#new-user").toggle();
+      $("#mail").show();
     });
   });
   var users=[
@@ -30,17 +31,26 @@ $(document).ready(function(){
       password:password
      }
   
-    for(var reg=0;reg<=users.length;reg++){
-    if(username==users[reg].username && password==users[reg].password && Email==users[reg].Email)
-      {
+for(var reg=0;reg<=users.length;reg++){
+  if(username!="" && password!="" && Email!=""){
+    
+    if(username==users[reg].username ||  Email==users[reg].Email){
       alert("username already exixts");
       return;
-
-      }
-       
-      }
+    }else{
       users.push(newUsers);
       console.log(users);
+      alert("added"+username);
+      return;
+      }
+     
+  }else{
+    alert("please enter your credentials");
+       return;
+  }
+  
+}
+     
 
   
 
