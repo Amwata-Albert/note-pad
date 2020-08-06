@@ -1,54 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Load icon library -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-    <title>Simple Notepad</title>
-    <link rel="stylesheet" href="css/style.css">
+	<title>Notes App</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css ">
+<script src="js/script.js">
+</script>
 </head>
-
 <body>
-    <h1 class="text-center">Notepad</h1><br>
-    <form class="form">
-        <div class="row">
 
-            <div class="col-4 py-4 px-4">
-                <button type="button" id="write-note"><i class="fa fa-edit"></i></button>
-                <!-- <button onclick="edit()">Edit</button> -->
-                <!-- <input type="text" placeholder="Search.." name="search">
-                <button type="submit" onclick="searching()"><i class="fa fa-search"></i></button> -->
-                <!-- <button id="delete" class="btn"><i class="fa fa-trash" onclick="Delete()"></i> Trash</button> -->
-                <ul class="save-notes list-group list-group-flush" id="notes-display">
+  <div class="leftsidebar">
+    <a href="#home"><i class="fa fa-fw fa-pencil fa-lg"></i></a>
+    <a href="#services"><i class="fa fa-fw fa-envelope fa-lg"></i></a>
+    <a href="#clients"><i class="fa fa-fw fa-search fa-lg"></i></a>
+    <a href="#contact"><i class="fa fa-fw fa-trash fa-lg"></i></a>
+    <input class="search" type="text" value="search">
+  </div>
 
-                </ul>
-            </div>
+<div class="rightsidebar">
+<button class="button" onclick("")>Register</button> </br>
 
-            <div class="col-6">
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Type Note Here</label>
-                    <textarea class="form-control" id="note-content" rows="15" ></textarea>
-                  </div>
-            </div>
-        </div>
-    </form>
+<div class="registrationform">
+<form>
+<input class="form" type="name" value="name"> </br>
+</br>
+<input class="form" type="email" value="email">
+</form>
+</div>
+</br>
+OR</br>
+<button class="button" onclick("")>Login</button></br>
+<div class="loginmessage">
+You forgot to enter an email address!
+</div>
 
-    
+</div>
 
-    <!-- JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
-        integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J"
-        crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+<div id="container">
+	<h1>Notes App <i class=""></i></h1>
+	<input type="text" placeholder="Add New Note">
+
+	<ul>
+		<li><span></i></span> Note 1</li>
+    <li><span></i></span> Note 2</li>
+    <li><span></i></span> Note 3</li>
+	</ul>
+</div>
+
 </body>
-
 </html>
