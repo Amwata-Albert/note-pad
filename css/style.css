@@ -1,0 +1,12 @@
+body{
+    background-image: url(../image/pexels-fwstudio-172295.jpg);
+    
+}
+
+li span:hover {
+    cursor: pointer;
+}
+
+.list-group-item {
+    background: transparent;
+}
