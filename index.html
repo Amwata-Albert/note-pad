@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- <style>
+    .credentials{
+        line-height: 40px;
+        width:14.5%;
+        margin-bottom: 1%;
+        float: right;
+    }
+    .credentials input{
+            border-radius: 5px;
+            height: 30px;
+            line-height: 40px;
+            float: right;
+
+    }
+    .button1 button,.button2 button,#register{
+        background-color: deepskyblue;
+        width: 10%;
+        font-size: 20px;
+        border-radius: 5px;
+        float: right;
+    }
+    .container{
+        
+        width: 300px;
+        float: right;
+    }
+    body{
+        background-image:url("wood.jpg") ;
+        margin-left: 80%
+        ;
+    }
+</style> -->
+<body>
+<div class="container">
+    <div class="button2">
+        <button id="log-in" onclick="login()">log in</button>
+</div>
+<div class="button1">
+    <button style="display: block;" id="new-user">I am a new user</button>
+</div>
+    <div class="credentials">
+        <input type="text" id="username" placeholder="username">
+        <input style="display: none;" type="email" id="mail" placeholder="Email" required="yes"><br>
+        <input type="password" id="pass" placeholder="password">
+       
+    </div>
+   
+    <div class="button3">
+        <button style="display: none;" type="submit" id="register" onclick="register()">register</button>
+    </div>
+    <script src="jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="js/script.js"></script>
+</div>
+  
+    
+</body>
+</html>
