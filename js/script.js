@@ -1,73 +1,124 @@
-$(document).ready(function(){
-    $("#new-user").click(function(){
-      $("#register").toggle();
-      $("#new-user").toggle();
-      $("#mail").show();
-    });
-  });
-  var users=[
-    {
-      username:"a",
-      Email:"a@gmail.com",
-      password:"123456789"
-      
-    },
-    {
-      username:"b",
-      Email:"b@gmail.com",
-      password:"1234567890"
-      
-    }
-  ]
+(function ($) {
+	// Typed JS options
+	const options = {
+		strings: ['Note-Pad App.', 'take notes anywhere,','anytime...'],
+		typeSpeed: 80,
+		smartBackspace: true,
+		loop: true,
+		showCursor: false,
+		backDelay: 700,
+		fadeOut: true,
+	  };
 
-  function register(){
-    let Email=document.getElementById("mail").value;
-    let password=document.getElementById("pass").value;
-    let username=document.getElementById("username").value;
+	  const typed = new Typed('.heading', options);
 
-    let newUsers={
-      username:username,
-      Email:Email,
-      password:password
-     }
-  
-for(var reg=0;reg<=users.length;reg++){
-  if(username!="" && password!="" && Email!=""){
-    
-    if(username==users[reg].username ||  Email==users[reg].Email){
-      alert("username already exixts");
-      return;
-    }else{
-      users.push(newUsers);
-      console.log(users);
-      alert("added"+username);
-      return;
-      }
-     
-  }else{
-    alert("please enter your credentials");
-       return;
-  }
-  
-}
-     
+	// Initialize global array to store our notes
+	let notesArray = [];
 
-  
+	// initialize variables to store our edited note and its index in the notesArray
+	let editedNote;
+	let editedNoteIndex;
 
-}
-function login(){
-    let password=document.getElementById("pass").value;
-    let username=document.getElementById("username").value;
+	/** CREATE NOTES FUNCTION
+	 * This function goes throuhg the list of notes in notesArray and add them to the HTML
+	 * It will be used in the addNote and deleteNote functions.
+	 */
+	function displayNotes( array ) {
+		$("ul#notes-display").html("");
 
+		/**Add each note in the notesArray to the unordered list with id #notes-display
+		 * Give each list item an id with the format id="note-<indexOf(note)>". 
+				 E.g the first note <li id="0"> and so on.
+		 */
+		return array.forEach(function (note, index) {
+			$("ul#notes-display").prepend(function () {
+				return `<li id=${index} class="list-group-item d-flex justify-content-between align-items-center">
+						<span class="note">${note}</span>
+						<span class="badge badge-danger badge-pill delete">
+								<i class="fas fa-trash-alt"></i>
+						</span>
+				</li>`;
+			});
+		});
+	}
 
- for(var p=0;p<users.length;p++){
-  if(username==users[p].username && password==users[p].password){
-    alert("username available to login");
-    // window.location.href="sample.html";
-    return;
-  }
-   
-  }
-  alert("username not found")
-}
+	$("button#write-note").click(function (event) {
+		event.preventDefault();
 
+		const addedNote = $("textarea#note-content").val();
+
+		if (addedNote !== '') {
+			notesArray.push(addedNote);
+		}
+
+		// Show the notes in the HTML
+		displayNotes(notesArray);
+
+		//Clear the text area
+		$("textarea#note-content").val("");
+	});
+
+	/** DELETE NOTE FUNCTION:
+	 * This method is used since the HTML for the list of notes is dynamically generated
+	 * We have to bind the click event to an already existing parent, in this case #notes-display
+	 * Get the note's id from the <li> id attribute
+	 * The note's id - 1 = the index of the note in the notesArray
+	 * Use .splice() method to remove the note from the array 
+	 */
+	$('ul#notes-display').on('click', 'li > .delete', function () {
+		const noteIndex = parseInt($(this).parent().attr('id'));
+
+		// Delete the note from the noteArray
+		notesArray.splice(noteIndex, 1);
+
+		// clear the textarea
+		$("textarea#note-content").val("");
+		
+		//  Show the notes in the HTML
+		displayNotes(notesArray);
+	});
+
+	/** EDIT NOTE FUNCTION:
+	 * Disable the add note button and add an edit note button
+	 * Get the note and the note index
+	 * Display the note in the text area
+	 * After editing the note, replace it into the notesArray using .splice() at its index
+	 * .splice() can add new elements, replace an element or delete an element from an array*/ 
+	$('ul#notes-display').on('click', 'li > .note', function () {
+		// remove the add note button and replace it with the edit note button
+		$('span#display-add-button').html(``);
+		$('span#display-edit-button').html(`
+			<button class="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-2 px-4 border-b-4 border-yellow-700 hover:border-yellow-500 rounded "
+			type="button" id="edit-note">
+				<i class="fas fa-pen"></i> Edit Note
+			</button>
+		`)
+
+		
+		// Get the content of the note
+		const note = $(this).text();
+
+		// Get the id of the note
+		editedNoteIndex = parseInt($(this).parent().attr('id'));
+
+		// Place the note content in the textarea
+		$('textarea#note-content').val(note);
+
+		//The newly edited note
+		editedNote = $('textarea#note-content').val();
+
+		console.log(editedNote, editedNoteIndex);
+	});
+
+	/** Bind the click event to the edit note button
+		 * Add the edited note to the notesArray at its original index
+		 */
+		$("span#display-edit-button").on('click', 'span#display-edit-button> button#edit-note', function() {
+			console.log('editing note');
+			//replace the old note at its index 
+		// notesArray.splice(noteIndex, 1, editedNote);
+		// console.log(notesArray, editedNote)
+		})
+
+	
+})(jQuery);

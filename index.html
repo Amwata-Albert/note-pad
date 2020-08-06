@@ -1,65 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<title>Notes App</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css ">
+<script src="js/script.js">
+</script>
 </head>
-<!-- <style>
-    .credentials{
-        line-height: 40px;
-        width:14.5%;
-        margin-bottom: 1%;
-        float: right;
-    }
-    .credentials input{
-            border-radius: 5px;
-            height: 30px;
-            line-height: 40px;
-            float: right;
-
-    }
-    .button1 button,.button2 button,#register{
-        background-color: deepskyblue;
-        width: 10%;
-        font-size: 20px;
-        border-radius: 5px;
-        float: right;
-    }
-    .container{
-        
-        width: 300px;
-        float: right;
-    }
-    body{
-        background-image:url("wood.jpg") ;
-        margin-left: 80%
-        ;
-    }
-</style> -->
 <body>
-<div class="container">
-    <div class="button2">
-        <button id="log-in" onclick="login()">log in</button>
+  <div class="leftsidebar">
+    <a href="#home"><i class="fa fa-fw fa-pencil fa-lg"></i></a>
+    <a href="#services"><i class="fa fa-fw fa-envelope fa-lg"></i></a>
+    <a href="#clients"><i class="fa fa-fw fa-search fa-lg"></i></a>
+    <a href="#contact"><i class="fa fa-fw fa-trash fa-lg"></i></a>
+    <input class="search" type="text" value="search">
+  </div>
+
+<div class="rightsidebar">
+<button class="button" onclick("")>Register</button> </br>
+
+<div class="registrationform">
+<form>
+<input class="form" type="name" value="name"> </br>
+</br>
+<input class="form" type="email" value="email">
+</form>
 </div>
-<div class="button1">
-    <button style="display: block;" id="new-user">I am a new user</button>
+</br>
+OR</br>
+<button class="button" onclick("")>Login</button></br>
+<div class="loginmessage">
+You forgot to enter an email address!
 </div>
-    <div class="credentials">
-        <input type="text" id="username" placeholder="username">
-        <input style="display: none;" type="email" id="mail" placeholder="Email" required="yes"><br>
-        <input type="password" id="pass" placeholder="password">
-       
-    </div>
-   
-    <div class="button3">
-        <button style="display: none;" type="submit" id="register" onclick="register()">register</button>
-    </div>
-    <script src="jquery-3.5.1.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="js/script.js"></script>
+
 </div>
-  
-    
+
+<div id="container">
+	<h1>Notes App <i class=""></i></h1>
+	<input type="text" placeholder="Add New Note">
+
+	<ul>
+		<li><span></i></span> Note 1</li>
+    <li><span></i></span> Note 2</li>
+    <li><span></i></span> Note 3</li>
+	</ul>
+</div>
 </body>
 </html>

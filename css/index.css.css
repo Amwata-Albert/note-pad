@@ -1,0 +1,32 @@
+
+    .credentials{
+        line-height: 40px;
+        width:14.5%;
+        margin-bottom: 1%;
+        float: right;
+    }
+    .credentials input{
+            border-radius: 5px;
+            height: 30px;
+            line-height: 40px;
+            float: right;
+
+    }
+    .button1 button,.button2 button,#register{
+        background-color: deepskyblue;
+        width: 10%;
+        font-size: 20px;
+        border-radius: 5px;
+        float: right;
+    }
+    .container{
+        
+        width: 300px;
+        float: right;
+    }
+    
+    body{
+        background-image:url("wood.jpg") ;
+        margin-left: 80%
+        ;
+    }
