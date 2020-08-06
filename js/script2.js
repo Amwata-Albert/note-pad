@@ -1,15 +1,16 @@
-// $(document).ready(function(){
-//     $("#new-user").click(function(){
-//       $("#hidden").toggle();
-//       $("#register").show();
-//       $("#new-user").hide();
+$(document).ready(function(){
+  $("#mail").hide();
+    $("#new-user").click(function(){
+      // $("#hidden").toggle();
+      $("#register").show();
+      $("#new-user").hide();
+      $("#mail").show();
     
-//     });
-//     $("#log-in").click(function(){
-//         $("#hidden").show();
-//         $("#mail").hide();
-//     });
-//   });
+    });
+    $("#log-in").click(function(){
+        $("#hidden").show();
+    });
+  });
   
   var users=[
     {

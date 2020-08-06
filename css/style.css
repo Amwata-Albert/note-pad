@@ -47,31 +47,28 @@ li span:hover {
    /* margin-top: 5%; */
 }
 #new-user, #log-in, #register{
-    width: 130px;
-    height: 30px;
-    background-color: blue;
+    /* width: 130px;
+    height: 30px; */
+    /* background-color: blue; */
     float: left;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 
-    /* margin-left: 10px; */
+    margin-left: 10px;
 
-}
-#new-user{
+} 
+/* #new-user{
     margin-left: 10px;
     border: 2px solid black;
     text-shadow: brown;
-}
+} */
 #register{
     margin-left: 10px;
 }
-#hidden{
-    /* display: none; */
+/* #hidden{
     margin-top: 20px;
     float: left;
     width: 200px;
     height: 70px;
-    /* border: 1px solid black; */
-}
+} */
 #hidden input{
-    /* line-height: 40px; */
 }
