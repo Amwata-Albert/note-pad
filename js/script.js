@@ -1,4 +1,17 @@
 (function ($) {
+	// Typed JS options
+	const options = {
+		strings: ['Note-Pad App.', 'take notes anywhere,','anytime...'],
+		typeSpeed: 80,
+		smartBackspace: true,
+		loop: true,
+		showCursor: false,
+		backDelay: 700,
+		fadeOut: true,
+	  };
+
+	  const typed = new Typed('.heading', options);
+
 	// Initialize global array to store our notes
 	let notesArray = [];
 
@@ -17,14 +30,13 @@
 			$("#notes-display").prepend(function () {
 				return `<li id=${index} class="list-group-item d-flex justify-content-between align-items-center">
 						${note}
-						<span class="badge badge-success badge-pill ">
+						<span class="badge badge-success badge-pill edit">
 								<i class="fas fa-pen "></i>
 						</span>
 						<span class="badge badge-danger badge-pill delete">
 								<i class="fas fa-trash-alt"></i>
 						</span>
-				</li>
-				<hr/>`;
+				</li>`;
 			});
 		});
 	}
@@ -61,6 +73,10 @@
 		//  Show the notes in the HTML
 		displayNotes(notesArray);
 	});
+	/**
+	 * EDIT NOTE FUNCTION */ 
+	$('#notes-display').on('click', 'li > .edit', function () {
+		const noteIndex = parseInt($(this).parent().attr('id'));
 
-
+	});
 })(jQuery);
