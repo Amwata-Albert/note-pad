@@ -15,6 +15,10 @@
 	// Initialize global array to store our notes
 	let notesArray = [];
 
+	// initialize variables to store our edited note and its index in the notesArray
+	let editedNote;
+	let editedNoteIndex;
+
 	/** CREATE NOTES FUNCTION
 	 * This function goes throuhg the list of notes in notesArray and add them to the HTML
 	 * It will be used in the addNote and deleteNote functions.
@@ -81,22 +85,39 @@
 	 * After editing the note, replace it into the notesArray using .splice() at its index
 	 * .splice() can add new elements, replace an element or delete an element from an array*/ 
 	$('#notes-display').on('click', 'li > .note', function () {
-		// Disable add note button
-		$('#write-note').prop('disabled', true);
+		// remove the add note button and replace it with the edit note button
+		$('#display-add-button').html(``);
+		$('#display-edit-button').html(`
+			<button class="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-2 px-4 border-b-4 border-yellow-700 hover:border-yellow-500 rounded "
+			type="button" id="edit-note">
+				<i class="fas fa-pen"></i> Edit Note
+			</button>
+		`)
 
 		// Get the content of the note
 		const note = $(this).text();
 
 		// Get the id of the note
-		const noteIndex = parseInt($(this).parent().attr('id'));
-		console.log(note, noteIndex)
+		editedNoteIndex = parseInt($(this).parent().attr('id'));
 
 		// Place the note content in the textarea
 		$('#note-content').val(note);
 
 		//The newly edited note
-		const editedNote = $('#note-content').val();
+		editedNote = $('#note-content').val();
 
-		//
+		console.log(editedNote, editedNoteIndex);
 	});
+
+	/** Bind the click event to the edit note button
+		 * Add the edited note to the notesArray at its original index
+		 */
+		$("#display-edit-button").on('click', '#display-edit-button> #edit-note', function() {
+			console.log('editing note');
+			//replace the old note at its index 
+		// notesArray.splice(noteIndex, 1, editedNote);
+		// console.log(notesArray, editedNote)
+		})
+
+	
 })(jQuery);
