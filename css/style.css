@@ -1,4 +1,31 @@
 
+.jumbotron{
+    height: 100vh;
+    padding-top: 0px;
+    background-image: url('../image/ferenc-horvath-4gKHjKG7ty4-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+form {
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+    position: absolute;
+    top: 2%;
+    left: 42%;
+    text-align: center;
+
 body {
 	font-family: Roboto;
   background: url("../img/notesappbackground.jpg");
@@ -32,6 +59,7 @@ h1 {
 .fa-envelope{
 	color:#8B4513;
 	height:30px;
+
 }
 
 .fa-search{
