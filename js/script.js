@@ -1,73 +1,66 @@
-$(document).ready(function(){
-    $("#new-user").click(function(){
-      $("#register").toggle();
-      $("#new-user").toggle();
-      $("#mail").show();
-    });
-  });
-  var users=[
-    {
-      username:"a",
-      Email:"a@gmail.com",
-      password:"123456789"
-      
-    },
-    {
-      username:"b",
-      Email:"b@gmail.com",
-      password:"1234567890"
-      
-    }
-  ]
+(function ($) {
+	// Initialize global array to store our notes
+	let notesArray = [];
 
-  function register(){
-    let Email=document.getElementById("mail").value;
-    let password=document.getElementById("pass").value;
-    let username=document.getElementById("username").value;
+	/** CREATE NOTES FUNCTION
+	 * This function goes throuhg the list of notes in notesArray and add them to the HTML
+	 * It will be used in the addNote and deleteNote functions.
+	 */
+	function displayNotes( array ) {
+		$("#notes-display").html("");
 
-    let newUsers={
-      username:username,
-      Email:Email,
-      password:password
-     }
-  
-for(var reg=0;reg<=users.length;reg++){
-  if(username!="" && password!="" && Email!=""){
-    
-    if(username==users[reg].username ||  Email==users[reg].Email){
-      alert("username already exixts");
-      return;
-    }else{
-      users.push(newUsers);
-      console.log(users);
-      alert("added"+username);
-      return;
-      }
-     
-  }else{
-    alert("please enter your credentials");
-       return;
-  }
-  
-}
-     
+		/**Add each note in the notesArray to the unordered list with id #notes-display
+		 * Give each list item an id with the format id="note-<indexOf(note)>". 
+				 E.g the first note <li id="0"> and so on.
+		 */
+		return array.forEach(function (note, index) {
+			$("#notes-display").prepend(function () {
+				return `<li id=${index} class="list-group-item d-flex justify-content-between align-items-center">
+						${note}
+						<span class="badge badge-success badge-pill ">
+								<i class="fas fa-pen "></i>
+						</span>
+						<span class="badge badge-danger badge-pill delete">
+								<i class="fas fa-trash-alt"></i>
+						</span>
+				</li>
+				<hr/>`;
+			});
+		});
+	}
 
-  
+	$("#write-note").click(function (event) {
+		event.preventDefault();
 
-}
-function login(){
-    let password=document.getElementById("pass").value;
-    let username=document.getElementById("username").value;
+		const addedNote = $("textarea#note-content").val();
+
+		if (addedNote !== '') {
+			notesArray.push(addedNote);
+		}
+
+		// Show the notes in the HTML
+		displayNotes(notesArray);
+	});
+
+	/** DELETE NOTE FUNCTION:
+	 * This method is used since the HTML for the list of notes is dynamically generated
+	 * We have to bind the click event to an already existing parent, in this case #notes-display
+	 * Get the note's id from the <li> id attribute
+	 * The note's id - 1 = the index of the note in the notesArray
+	 * Use .splice() method to remove the note from the array 
+	 */
+	$('#notes-display').on('click', 'li > .delete', function () {
+		const noteIndex = parseInt($(this).parent().attr('id'));
+
+		// Delete the note from the noteArray
+		notesArray.splice(noteIndex, 1);
+
+		// clear the textarea
+		$("#note-content").val("");
+		
+		//  Show the notes in the HTML
+		displayNotes(notesArray);
+	});
 
 
- for(var p=0;p<users.length;p++){
-  if(username==users[p].username && password==users[p].password){
-    alert("username available to login");
-    // window.location.href="sample.html";
-    return;
-  }
-   
-  }
-  alert("username not found")
-}
-
+})(jQuery);
