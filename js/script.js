@@ -29,10 +29,7 @@
 		return array.forEach(function (note, index) {
 			$("#notes-display").prepend(function () {
 				return `<li id=${index} class="list-group-item d-flex justify-content-between align-items-center">
-						${note}
-						<span class="badge badge-success badge-pill edit">
-								<i class="fas fa-pen "></i>
-						</span>
+						<span class="note">${note}</span>
 						<span class="badge badge-danger badge-pill delete">
 								<i class="fas fa-trash-alt"></i>
 						</span>
@@ -52,6 +49,9 @@
 
 		// Show the notes in the HTML
 		displayNotes(notesArray);
+
+		//Clear the text area
+		$("textarea#note-content").val("");
 	});
 
 	/** DELETE NOTE FUNCTION:
@@ -73,10 +73,30 @@
 		//  Show the notes in the HTML
 		displayNotes(notesArray);
 	});
-	/**
-	 * EDIT NOTE FUNCTION */ 
-	$('#notes-display').on('click', 'li > .edit', function () {
-		const noteIndex = parseInt($(this).parent().attr('id'));
 
+	/** EDIT NOTE FUNCTION:
+	 * Disable the add note button and add an edit note button
+	 * Get the note and the note index
+	 * Display the note in the text area
+	 * After editing the note, replace it into the notesArray using .splice() at its index
+	 * .splice() can add new elements, replace an element or delete an element from an array*/ 
+	$('#notes-display').on('click', 'li > .note', function () {
+		// Disable add note button
+		$('#write-note').prop('disabled', true);
+
+		// Get the content of the note
+		const note = $(this).text();
+
+		// Get the id of the note
+		const noteIndex = parseInt($(this).parent().attr('id'));
+		console.log(note, noteIndex)
+
+		// Place the note content in the textarea
+		$('#note-content').val(note);
+
+		//The newly edited note
+		const editedNote = $('#note-content').val();
+
+		//
 	});
 })(jQuery);

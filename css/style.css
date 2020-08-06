@@ -7,7 +7,8 @@
     height: 100vh;
     padding-top: 0px;
     background-image: url('../image/ferenc-horvath-4gKHjKG7ty4-unsplash.jpg');
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
     opacity: 0.8;
     filter: blur(2px);
   -webkit-filter: blur(2px);
