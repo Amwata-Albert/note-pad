@@ -1,20 +1,31 @@
 $(document).ready(function(){
   $("#mail").hide();
+  $("#write-note").hide();  
+      $("#display-edit-button").hide();
     $("#new-user").click(function(){
       // $("#hidden").toggle();
       $("#register").show();
       $("#new-user").hide();
       $("#mail").show();
+
+      $("#write-note").hide();  
+      $("#display-edit-button").hide();
+    
     
     });
     $("#log-in").click(function(){
-        $("#hidden").show();
+        $("#hidden").hide();
+        $("#write-note").show();  
+      $("#display-edit-button").show();
+        // $("show").hide();
+
+        // $("#logout").hide();
     });
   });
   
   var users=[
     {
-      username:"a",
+      username:"amwata",
       Email:"a@gmail.com",
       password:"123456789"
       
@@ -69,11 +80,34 @@ function login(){
 
  for(var p=0;p<users.length;p++){
   if(username==users[p].username && password==users[p].password){
-    alert("username available to login");
+    $("#logout").show();
+    $("#new-user").hide();
+    $("#log-in").hide();
+    $("#write-note").show();  
+      $("#display-edit-button").show();
+    var code=' Hello ,'+username+' You have succesfully logged in';
+
+    $("#show").text(function(){
+      alert(code);
+      return
+    });
     // window.location.href="sample.html";
     return;
   }
+
    
   }
-  alert("username not found")
+  alert("username not found");
+
+}
+
+function logout1(){
+  $("#logout").click(function(){
+    $("#log-in").show();
+    $("#new-user").show();
+    $("#logout").hide();
+
+    $("#write-note").hide();  
+      $("#display-edit-button").hide();
+  });
 }
