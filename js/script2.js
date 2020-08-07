@@ -26,7 +26,7 @@ $(document).ready(function(){
   var users=[
     {
       username:"amwata",
-      Email:"a@gmail.com",
+      Email:"amwata@gmail.com",
       password:"123456789"
       
     },
@@ -35,10 +35,28 @@ $(document).ready(function(){
       Email:"b@gmail.com",
       password:"1234567890"
       
+    },
+    {
+      username:"cindy",
+      Email:"cindy@gmail.com",
+      password:"cindy"
+      
+    },
+    {
+      username:"zawadi",
+      Email:"zawadi@gmail.com",
+      password:"zawadi"
+      
+    },
+    {
+      username:"k",
+      Email:"k@gmail.com",
+      password:"0123456789"
+      
     }
   ]
 
-  function register(){
+  function register1(){
     let Email=document.getElementById("mail").value;
     let password=document.getElementById("pass").value;
     let username=document.getElementById("username").value;
@@ -53,19 +71,21 @@ for(var reg=0;reg<=users.length;reg++){
   if(username!="" && password!="" && Email!=""){
     
     if(username==users[reg].username ||  Email==users[reg].Email){
-      alert("username already exixts");
+      // $("#hidden").show();
+      // alert("username already exixts");
       return;
     }else{
       users.push(newUsers);
       console.log(users);
-      alert("added"+username);
+      alert("added :"+username);
       return;
+
       }
      
-  }else{
-    alert("please enter your credentials");
+  }    
+  alert("please enter your credentials");
        return;
-  }
+  
   
 }
      
